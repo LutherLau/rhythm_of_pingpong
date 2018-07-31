@@ -10,7 +10,7 @@
 ```
 python(3) rhythm_of_pingpong.py
 ```
-#### 用到的技术
+#### 技术栈
 * 使用pygame实现
 * 网络使用python3的socket库
 * 使用到了sqlite3作为服务端数据存储

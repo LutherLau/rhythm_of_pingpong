@@ -1,0 +1,63 @@
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>游戏反馈</title>
+</head>
+<body>
+<h4>请吐槽吧， 反正我不一定会看</h4>
+
+    <div id="state">
+    来吐个槽
+</div><br>
+    
+  <textarea type="text" style="width:400px;height:300px;" id="feedback" name="feedback"></textarea><br>
+    <button id="select" onclick="register()">提交</button>
+
+<br>
+
+
+</body>
+
+<script type="text/javascript">
+    var req = new XMLHttpRequest();
+    function register() {
+        req.open("POST", "http://lutherlau.com:3721", true);
+
+        //请求头信息
+        req.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
+        
+        //回调函数
+        req.onreadystatechange = callback;
+
+        //数据
+        var reqData = "feedback=" + document.getElementById("feedback").value;
+      
+        //发送
+        req.readyState = 0
+        req.send(reqData);
+    }
+
+    //回调
+    function callback() {
+        var show = document.getElementById("state");
+        //如果ajax和request的状态都正确
+        if (req.readyState == 4){
+          if (req.status == 200) {
+             //返回数据
+             var response = req.responseText;
+             // 修改
+             show.innerHTML = response;
+             //req.readyState == 0
+            }else{
+              show.innerHTML = "貌似有点长，吐槽失败...";
+            }
+        }
+        else{
+          show.innerHTML = "正在发送...";
+        }
+    }
+</script>
+</html>

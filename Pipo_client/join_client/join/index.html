@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>律动乒乓注册界面</title>
+</head>
+<body>
+<h4>请填写注册信息</h4>
+<ul>
+    <li>用户名:<input type="text" id="nickname" name="nickname" ><br></li>
+    <li>密码:<input type="password" id="pass" name="pass"><br></li>
+    <li>重复密码:<input type="password" id="repass" name="repass" ><br></li>
+    <li>头像(填写下列图片的序号):<input type="text" id="avatar" name="avatar"><br></li>
+    <img src="./avatars.png"><br>
+    <button id="select" onclick="register()">注册</button>
+</ul>
+<br>
+<div id="state">
+    等待注册
+</div>
+
+</body>
+
+<script type="text/javascript">
+    var req = new XMLHttpRequest();
+    function register() {
+        req.open("POST", "http://lutherlau.com:3721", true);
+
+        //请求头信息
+        req.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
+        
+        //回调函数
+        req.onreadystatechange = callback;
+
+        //数据
+        var reqData = "nickname=" + document.getElementById("nickname").value;
+        reqData += "&pass=" + document.getElementById("pass").value;
+        reqData += "&repass=" + document.getElementById("repass").value;
+        reqData += "&avatar=" + document.getElementById("avatar").value;
+        //发送
+        req.readyState = 0
+        req.send(reqData);
+    }
+
+    //回调
+    function callback() {
+        var show = document.getElementById("state");
+        //如果ajax和request的状态都正确
+        if (req.readyState == 4){
+          if (req.status == 200) {
+             //返回数据
+             var response = req.responseText;
+             // 修改
+             show.innerHTML = response;
+             //req.readyState == 0
+            }else{
+              show.innerHTML = "未知错误，请稍后重试";
+            }
+        }
+        else{
+          show.innerHTML = "正在注册，请稍后";
+        }
+    }
+</script>
+</html>

@@ -1,4 +1,4 @@
-# rhythm_of_pingpong
+# Rhythm-of-Pingpong
 
 #### 一个简单的弹球游戏
 * 人机对战
@@ -15,4 +15,4 @@ python(3) rhythm_of_pingpong.py
 * 网络使用python3的socket库
 * 使用到了sqlite3作为服务端数据存储
 #### 其他
-* 部分图片来源于网络
+* 部分图片来源于网络，表示感谢

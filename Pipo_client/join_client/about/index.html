@@ -1,13 +1,111 @@
-
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
     <meta charset="UTF-8">
-    <title>关于</title>
+    <title>Rhythm of Ping-pong</title>
 </head>
-<body>
-<h2>关于此游戏的一切</h2>
-  <div>玩法：<br>右侧玩家用↑↓操作,<br>左侧玩家用ws操作, 进球得10分，星星得1分</div>
-<br>
+<style>
+    .link {
+        position: relative;
+        display: inline-block;
+        padding: 8px 12px 8px 12px;
+        font-size: 15px;
+        vertical-align: top;
+        border-radius: 50px;
+        text-align: center;
+        text-decoration-line: none;
+        background: rgba(255, 255, 255, 0.8);
+        color: indigo;
+    }
+
+    .button {
+        position: relative;
+        display: inline-block;
+        height: 50px;
+        padding: 0 20px;
+        font-size: 18px;
+        line-height: 30px;
+        vertical-align: top;
+        border-radius: 100px;
+        text-align: center;
+        background: rgba(0, 132, 255, .1);
+    }
+
+    .ball {
+        width: 60px;
+        height: 60px;
+        background: red;
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .main {
+        border-radius: 10px;
+        text-align: center;
+        padding: 16%;
+        z-index: 2;
+        background: beige;
+        position: relative;
+        opacity: 0.75;
+        background: url("../res/bg.png");
+        background-size: cover;
+    }
+</style>
+
+<body style="background-color: #7acef2;text-align: center;padding: 5%;">
+    <div class="main">
+        <h1>关于游戏</h1>   
+         <div>玩法：<br>右侧玩家用↑/↓操作,<br>左侧玩家用W/S操作, 进球得10分，星星得1分</div>
+    </div>
+  <br>
+    <div class="ball" style="z-index:1;" </div>
+
 </body>
+<script>
+    var oBall = document.querySelector('.ball'), leftNum = 18;
+    topNum = 18;
+    leftMax = document.documentElement.clientWidth - oBall.clientWidth;
+    topMax = document.documentElement.clientHeight - oBall.clientHeight;
+    window.onresize = function () {
+        leftMax = document.documentElement.clientWidth - oBall.clientWidth;
+        topMax = document.documentElement.clientHeight - oBall.clientHeight;
+    }
+    setInterval(function () {
+        var Left = oBall.offsetLeft + leftNum,
+            Top = oBall.offsetTop + topNum;
+
+        if (Left >= leftMax) {
+            Left = leftMax;
+            leftNum = -leftNum;
+            ballBg(oBall);
+        } else if (Left <= 0) {
+            Left = 0;
+            leftNum = -leftNum;
+            ballBg(oBall);
+        };
+        if (Top >= topMax) {
+            Top = topMax;
+            topNum = -topNum;
+            ballBg(oBall);
+        } else if (Top <= 0) {
+            Top = 0;
+            topNum = -topNum;
+            ballBg(oBall);
+        };
+        oBall.style.left = Left + 'px';
+        oBall.style.top = Top + 'px';
+
+    }, 30);
+
+    function ballBg(obj) {
+        var r = Math.floor(Math.random() * 256);
+        g = Math.floor(Math.random() * 256);
+        b = Math.floor(Math.random() * 256);
+        obj.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
+    }
+</script>
+
 </html>

@@ -10,13 +10,13 @@
 
 
 ### 游戏截图
-![](images/20181120132837208_27797.png =512x)
-![4](images/20181120132856387_1962.png =512x)
-![2](images/20181120132939010_7753.png =512x)
-![1](images/20181120132921869_12896.png =512x)
-![7](images/20181120132959104_13985.png =512x)
-![8](images/20181120133010048_14548.png =512x)
-![9](images/20181120133050975_24855.png =512x)
+<img src="https://raw.githubusercontent.com/lutherlau/rhythm-of-pingpong/master/images/20181120132837208_27797.png" width="512px"/>
+<img src="https://raw.githubusercontent.com/lutherlau/rhythm-of-pingpong/master/images/20181120132856387_1962.png" width="512px"/>
+<img src="https://raw.githubusercontent.com/lutherlau/rhythm-of-pingpong/master/images/20181120132939010_7753.png" width="512px"/>
+<img src="https://raw.githubusercontent.com/lutherlau/rhythm-of-pingpong/master/images/20181120132921869_12896.png" width="512px"/>
+<img src="https://raw.githubusercontent.com/lutherlau/rhythm-of-pingpong/master/images/20181120132959104_13985.png" width="512px"/>
+<img src="https://raw.githubusercontent.com/lutherlau/rhythm-of-pingpong/master/images/20181120133010048_14548.png" width="512px"/>
+<img src="https://raw.githubusercontent.com/lutherlau/rhythm-of-pingpong/master/images/20181120133050975_24855.png" width="512px"/>
 
 
 ### 服务端部署
